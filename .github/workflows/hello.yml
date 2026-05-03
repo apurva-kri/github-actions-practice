@@ -14,3 +14,7 @@ jobs:
 
       - name: greet-user from local
         run: echo "Hello from GitHub Actions!"
+
+      - name: show current date
+        run: echo "date"
+
