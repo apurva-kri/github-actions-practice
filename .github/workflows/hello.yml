@@ -19,5 +19,8 @@ jobs:
         run: date
 
       - name: print triggered branch
-        run: echo "${{ github.ref_name }}" # this is built-in var, that provides the triggered branch name
+        run: echo "${{ github.ref_name }}" # this is built-in var, that provides the triggered branch name, it only works on push
+
+      - name: list files in repo
+        run: ls
 
