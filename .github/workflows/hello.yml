@@ -11,5 +11,5 @@ jobs:
       - name: code-checkout
         uses: actions/checkout@v4
 
-      - name: greet-user
+      - name: greet-user from local
         run: echo "Hello from GitHub Actions!"
