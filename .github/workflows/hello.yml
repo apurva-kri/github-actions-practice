@@ -23,4 +23,7 @@ jobs:
 
       - name: list files in repo
         run: ls
+      
+      - name: print runner OS
+        run: echo "runner OS is $RUNNER_OS"
 
