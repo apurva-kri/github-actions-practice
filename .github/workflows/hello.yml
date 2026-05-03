@@ -18,3 +18,6 @@ jobs:
       - name: show current date
         run: date
 
+      - name: print triggered branch
+        run: echo "${{ github.ref_name }}" # this is built-in var, that provides the triggered branch name
+
