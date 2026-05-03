@@ -18,6 +18,9 @@ jobs:
       - name: show current date
         run: date
 
+      - name: test failed 
+        run: exit 1
+
       - name: print triggered branch
         run: echo "${{ github.ref_name }}" # this is built-in var, that provides the triggered branch name, it only works on push
 
