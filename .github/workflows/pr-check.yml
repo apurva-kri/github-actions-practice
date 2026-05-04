@@ -12,5 +12,5 @@ jobs:
               run: actions/checkout@v4
             - name: pr-check
               run: |
-                BRANCH="${{github.head_ref}}"
-                echo "PR check running for branch $BRANCH"
+                BRANCH="${{ github.head_ref }}"
+                echo "PR check running for branch $BRANCH" 
