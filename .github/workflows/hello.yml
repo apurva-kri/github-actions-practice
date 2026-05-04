@@ -5,12 +5,12 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build: # job name
     runs-on: ubuntu-latest
 
     steps:
       - name: code-checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # Bring my project code into this machine so I can work on it
 
       - name: greet-user from local
         run: echo "Hello from GitHub Actions!"
