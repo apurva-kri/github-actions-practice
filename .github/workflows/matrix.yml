@@ -9,9 +9,15 @@ jobs:
         runs-on: ${{matrix.os}}
 
         strategy:
+            fail-fast: false
             matrix:
                 os: [ubuntu-latest, windows-latest]
                 python-version: ['3.10', '3.11', '3.12']
+
+                exclude:
+                    - os: windows-latest
+                      python-version: '3.10' # exclude combo
+
 
         steps:
             - name: code checkout
@@ -22,5 +28,12 @@ jobs:
               with:
                 python-version: ${{matrix.python-version}}
 
+               #intentional failure for testing
+            - name: force failure on python 3.11
+              if: matrix.python-version==3.11
+              run: exit 1
+
             - name: print python version
               run: python --version
+
+         
