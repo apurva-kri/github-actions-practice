@@ -28,7 +28,7 @@ jobs:
             - name: print current user
               run: echo "current_user:$(whoami)"
     detail3:
-        runs-on: macos-ltest
+        runs-on: macos-latest
         steps:
             - name: print OS name
               run: uname -a
