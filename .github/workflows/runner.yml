@@ -1,1 +1,40 @@
+name: self_hosted
 
+on:
+    workflow_dispatch:
+
+
+jobs:
+    detail1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print OS name
+              run: uname -a
+
+            - name: print host name
+              run: echo "hostname:$(hostname)"
+
+            - name: print current user
+              run: echo "current_user:$(whoami)"
+    detail2:
+        runs-on: windows-latest
+        steps:
+            - name: print OS name
+              run: uname -a
+
+            - name: print host name
+              run: echo "hostname:$(hostname)"
+
+            - name: print current user
+              run: echo "current_user:$(whoami)"
+    detail3:
+        runs-on: macos-ltest
+        steps:
+            - name: print OS name
+              run: uname -a
+
+            - name: print host name
+              run: echo "hostname:$(hostname)"
+
+            - name: print current user
+              run: echo "current_user:$(whoami)"
