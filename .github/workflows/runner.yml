@@ -16,6 +16,18 @@ jobs:
 
             - name: print current user
               run: echo "current_user:$(whoami)"
+
+            - name: check docker versions
+              run: docker --version
+
+            - name: check python versions 
+              run: python --version
+
+            - name: check node version
+              run: node --version
+
+            - name: check git version
+              run: git --version
     detail2:
         runs-on: windows-latest
         steps:
