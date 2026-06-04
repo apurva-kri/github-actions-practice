@@ -8,7 +8,7 @@ jobs:
     detail1:
         runs-on: [self-hosted, my-linux-runner]
         steps:
-            - name: print OS name
+            - name: print OSname
               run: uname -a
 
             - name: print host name
