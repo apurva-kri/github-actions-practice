@@ -4,7 +4,6 @@ on:
     push:
       branches: [main]
 
-
 jobs:
     detail1:
         runs-on: [self-hosted, my-linux-runner]
