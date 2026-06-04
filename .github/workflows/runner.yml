@@ -6,7 +6,7 @@ on:
 
 jobs:
     detail1:
-        runs-on: ubuntu-latest
+        runs-on: [self-hosted, my-linux-runner]
         steps:
             - name: print OS name
               run: uname -a
