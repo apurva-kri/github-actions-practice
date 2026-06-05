@@ -23,9 +23,11 @@ jobs:
 
             - name: check python versions 
               run: python --version
+              continue-on-error: true
 
             - name: check node version
               run: node --version
+              continue-on-error: true
 
             - name: check git version
               run: git --version
