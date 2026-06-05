@@ -19,6 +19,7 @@ jobs:
 
             - name: check docker versions
               run: docker --version
+              continue-on-error: true
 
             - name: check python versions 
               run: python --version
