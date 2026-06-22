@@ -1,3 +1,4 @@
+#name of the workflow
 name: cicd
 on:
   workflow_dispatch: 
