@@ -19,14 +19,26 @@ jobs:
           run: |
             echo "Commit SHA: ${{ github.sha }}"
             echo Trigerred By: ${{ github.actor }}""
-    date:
+
+    get-date:   #job name
       runs-on: ubuntu-latest
+      outputs:  # Expose values from this job so other jobs can use them
+     # steps.date.outputs.today → Refers to the output named today created by the step whose id is date
+        today: ${{ steps.date.outputs.today}}  # Create a job output named 'today' using the step output
+
       steps:
-        - name: todays date
-          run: echo "date=$(date)" >> $GITHUB_OUTPUT
-    output:
-      runs-on: ubuntu-latest
-      steps:
-        - name: date output from another job
-          run: ${{ needs.output.outputs.date }}
+        - name: get todays date
+          id: date # Unique ID for this step, used to reference its outputs
+          # $GITHUB_OUTPUT → A special file that GitHub Actions uses to store step outputs.
+          run: echo "today=$(date)" >> $GITHUB_OUTPUT  # Run the Linux 'date' command and save its result as a step output named 'today'
+
+    print-date:       # Job 2: Reads and prints the output from Job 1
+        runs-on: ubuntu-latest
+        needs: get-date          # Wait for the 'get-date' job to finish before starting
+        steps:
+          - name: print date
+           # Access the 'today' job output from the 'get-date' job and print it
+            run: echo "Today date is ${{ needs.get-date.outputs.today}}"  
+            
+      
           
