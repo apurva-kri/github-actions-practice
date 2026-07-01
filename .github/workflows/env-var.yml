@@ -14,4 +14,9 @@ jobs:
      steps:
         - name: print all level
           run: echo "$APP_NAME, $ENVIRONMENT, $VERSION"
+
+        - name: Print github context
+          run: |
+            echo "Commit SHA: ${{ github.sha }}"
+            echo Trigerred By: ${{ github.actor }}""
   
