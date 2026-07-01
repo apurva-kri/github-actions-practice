@@ -23,4 +23,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: todays date
-          run: date
+          run: echo "date=$(date)" >> $GITHUB_OUTPUT
+    output:
+      runs-on: ubuntu-latest
+      steps:
+        - name: date output from another job
+          run: ${{ needs.output.outputs.date }}
+          
