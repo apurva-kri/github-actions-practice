@@ -1,0 +1,23 @@
+#Goal: whenever someone changes the python code, the linter will check if the syntax, format, indentation (linting is correct or not)
+name: Auto linter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.py"
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+    #this step will automatically clone the code of the current branch into the runner
+      - name: checkout/clone the code
+        uses: actions/checkout@v4
+#this step will install the linting tool
+      - name: install linter
+        run: pip install ruff  
+
+      - name: check the files for linting  
+        run: ruff check . 
+ 
+  

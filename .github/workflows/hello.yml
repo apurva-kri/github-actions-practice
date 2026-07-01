@@ -1,15 +1,19 @@
+#name of the workflow
 name: greet-hello
-
+# on tells when the workflow will run
 on:
   schedule:
     - cron: "0 0 * * *" #runs every day at midnight UTC
   #push:
     #branches: [main]
-
+# jobs tells what the workflow should do, there can be more tha  one or moew jobs hence we write jobs
+# job is an object so needs indentation
 jobs:
   build: # job name
+  #creates an ephermal container with ubuntu running
+  #ephermal means after running the steps it will be deleted
     runs-on: ubuntu-latest
-
+#that ephermal container will have steps to execute, hence name those steps and use run
     steps:
       - name: code-checkout
         uses: actions/checkout@v4  # Bring my project code into this machine so I can work on it
