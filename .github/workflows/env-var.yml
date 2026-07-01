@@ -19,4 +19,8 @@ jobs:
           run: |
             echo "Commit SHA: ${{ github.sha }}"
             echo Trigerred By: ${{ github.actor }}""
-  
+    date:
+      runs-on: ubuntu-latest
+      steps:
+        - name: todays date
+          run: date
