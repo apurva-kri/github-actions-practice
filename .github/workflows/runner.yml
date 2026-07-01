@@ -19,15 +19,15 @@ jobs:
 
             - name: check docker versions
               run: docker --version
-              continue-on-error: true
+              #continue-on-error: true
 
             - name: check python versions 
               run: python --version
-              continue-on-error: true
+              #continue-on-error: true
 
             - name: check node version
               run: node --version
-              continue-on-error: true
+              #continue-on-error: true
 
             - name: check git version
               run: git --version
