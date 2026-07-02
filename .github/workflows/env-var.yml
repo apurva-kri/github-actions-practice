@@ -39,6 +39,24 @@ jobs:
           - name: print date
            # Access the 'today' job output from the 'get-date' job and print it
             run: echo "Today date is ${{ needs.get-date.outputs.today}}"  
-            
-      
-          
+    
+          - name: run only on main branch
+            if: github.ref == 'refs/head/main'   #github.ref - stores the branch or tag that trigerred the workflow
+            run: echo "This is the main branch"
+
+          - name: run if previous steps fail
+            if: failure()         # its a built-in GitHub Actions Function
+            run: echo "previous step failed"
+
+    build:
+      if: github.event_name == 'push'  # contains the event that started the workflow
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "running only on push"
+
+        - name: continue on error
+          continue-on-error: true
+          run: exit 1
+
+        - name: Next Step
+          run: echo "workflow continues"
