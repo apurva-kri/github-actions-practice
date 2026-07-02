@@ -41,8 +41,11 @@ jobs:
             run: echo "Today date is ${{ needs.get-date.outputs.today}}"  
     
           - name: run only on main branch
-            if: github.ref == 'refs/head/main'   #github.ref - stores the branch or tag that trigerred the workflow
+            if: github.ref == 'refs/heads/main'   #github.ref - stores the branch or tag that trigerred the workflow
             run: echo "This is the main branch"
+
+          - name: fail intentionally
+            run: exit 1
 
           - name: run if previous steps fail
             if: failure()         # its a built-in GitHub Actions Function
