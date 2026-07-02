@@ -1,0 +1,32 @@
+name: smart pipeline
+on:
+    push:
+        branches: [main]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: run linter
+              run: echo "Running linter"
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: run test
+              run: echo "Running test"
+
+    Summary:
+        needs: [lint,test]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Main branch push
+              if: github.ref == 'refs/heads/main'
+              run: echo "This is the push to a main branch"
+
+            - name: Feature branch push
+              if: github.ref != 'refs/heads/main'
+              run: echo "This is the feature branch push"
+
+            - name: commit message
+              run: echo "Commit message- ${{ github.event.head_commit.message }}"
